@@ -1,4 +1,9 @@
 {
-	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
-	"extends": ["config:base"]
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base"],
+  "automerge": true,
+  "assigneesFromCodeOwners": true,
+  "ignoreDeps": [],
+  "forkMode": true,
+  "includeForks": true
 }
