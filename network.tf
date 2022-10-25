@@ -54,6 +54,7 @@ resource "oci_core_security_list" "security_list" {
       min = "22"
     }
   }
+
   # dns port
   ingress_security_rules {
     protocol = "6"
@@ -74,22 +75,13 @@ resource "oci_core_security_list" "security_list" {
       min = "53"
     }
   }
+
   # unsecure webinterface
   ingress_security_rules {
     protocol = "6"
     source   = "0.0.0.0/0"
 
     tcp_options {
-      max = "80"
-      min = "80"
-    }
-  }
-  # unsecure webinterface
-  ingress_security_rules {
-    protocol = "17"
-    source   = "0.0.0.0/0"
-
-    udp_options {
       max = "80"
       min = "80"
     }
@@ -113,16 +105,6 @@ resource "oci_core_security_list" "security_list" {
     udp_options {
       max = "443"
       min = "443"
-    }
-  }
-  # dns over https
-  ingress_security_rules {
-    protocol = "6"
-    source   = "0.0.0.0/0"
-
-    tcp_options {
-      max = "3000"
-      min = "3000"
     }
   }
 

@@ -3,7 +3,8 @@ variable "display_name" {
 }
 
 variable "instance_shape" {
-  default = "VM.Standard.A1.Flex" # ARM: VM.Standard.A1.Flex AMD: VM.Standard.E2.1.Micro
+  default = "VM.Standard.A1.Flex" # ARM
+  # default = "VM.Standard.E2.1.Micro" # X64
 }
 
 variable "instance_ocpus" {
@@ -15,19 +16,19 @@ variable "instance_shape_config_memory_in_gbs" {
 }
 
 variable "tenancy_ocid" {
-  default = "ocid1.tenancy.oc1..ijoweriowejiorijowr...."
+  default = "ocid1.tenancy.oc1..CHANGETHIS"
 }
 
 variable "user_ocid" {
-  default = "ocid1.user.oc1..oijejiowjoiejiorjiw...."
+  default = "ocid1.user.oc1..CHANGETHIS"
 }
 
 variable "fingerprint" {
-  default = "31:3a:0d:........"
+  default = "11:22:33.........."
 }
 
 variable "private_key_path" {
-  default = "/Users/username/.ssh/key.pem"
+  default = "/Users/username/.ssh/privatekey.pem"
 }
 
 variable "region" {
@@ -35,7 +36,7 @@ variable "region" {
 }
 
 variable "compartment_ocid" {
-  default = "ocid1.compartment.oc1..oijfiosdfiojoisfjoijdf"
+  default = "ocid1.compartment.oc1..CHANGETHIS"
 }
 
 variable "ssh_public_key" {
@@ -48,19 +49,8 @@ variable "ssh_private_key" {
   sensitive = true
 }
 
-variable "instance_image_ocid" {
-  type = map(string)
-
-  default = {
-    # See https://docs.us-phoenix-1.oraclecloud.com/images/
-    # Canonical-Ubuntu-22.04-2022.08.10-0
-    eu-amsterdam-1 = "ocid1.image.oc1.eu-amsterdam-1.aaaaaaaaad7g3xv6w3unc7rexyksxujpfhpleuy6ky5dpnmlfakqzvpxs7ra"
-    # us-ashburn-1   = "ocid1.image.oc1.iad.aaaaaaaageeenzyuxgia726xur4ztaoxbxyjlxogdhreu3ngfj2gji3bayda"
-    # eu-frankfurt-1 = "ocid1.image.oc1.eu-frankfurt-1.aaaaaaaaitzn6tdyjer7jl34h2ujz74jwy5nkbukbh55ekp6oyzwrtfa4zma"
-    # uk-london-1    = "ocid1.image.oc1.uk-london-1.aaaaaaaa32voyikkkzfxyo4xbdmadc2dmvorfxxgdhpnk6dw64fa3l4jh7wa"
-  }
-}
 variable "flex_instance_image_ocid" {
+  # See https://docs.us-phoenix-1.oraclecloud.com/images/
   type = map(string)
   default = {
     eu-amsterdam-1 = "ocid1.image.oc1.eu-amsterdam-1.aaaaaaaadw6rseqgm33aytx35duudrm6edzp5lhhvutmkxzt45kn4szreraa"
